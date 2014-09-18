@@ -5,12 +5,7 @@
         <ScriptGroup isActive="yes" isFolder="yes">
             <name>GMCP-Scripts</name>
             <packageName></packageName>
-            <script>-------------------------------------------------
---         Put your Lua functions here.        --
---                                             --
--- Note that you can also use external Scripts --
--------------------------------------------------
-</script>
+            <script></script>
             <eventHandlerList/>
             <Script isActive="yes" isFolder="no">
                 <name>Display all</name>
