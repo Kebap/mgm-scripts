@@ -36,8 +36,23 @@ end</script>
                 <name>update_vitals</name>
                 <packageName></packageName>
                 <script>function update_vitals()
-  setGauge(&quot;healthbar&quot;,gmcp.MG.char.vitals.hp,gmcp.MG.char.maxvitals.max_hp, &quot;&quot;..gmcp.MG.char.vitals.hp .. &quot;/&quot; ..gmcp.MG.char.maxvitals.max_hp..&quot;&quot;)
-  setGauge(&quot;manabar&quot;,gmcp.MG.char.vitals.sp,gmcp.MG.char.maxvitals.max_sp, &quot;&quot;..gmcp.MG.char.vitals.sp .. &quot;/&quot; ..gmcp.MG.char.maxvitals.max_sp..&quot;&quot;)
+  hp_now = gmcp.MG.char.vitals.hp
+  hp_max = gmcp.MG.char.maxvitals.max_hp
+  mp_now = gmcp.MG.char.vitals.sp
+  mp_max = gmcp.MG.char.maxvitals.max_sp
+
+  if hp_now &lt; hp_old then
+    flashHealthGauge(0.2)
+  end
+  hp_old = hp_now  
+
+  setGauge(&quot;healthbar&quot;,hp_max, hp_now, &quot;&quot;..hp_now .. &quot;/&quot; ..hp_max..&quot;&quot;)
+  setGauge(&quot;manabar&quot;,mp_now ,mp_max , &quot;&quot;..mp_now .. &quot;/&quot; ..mp_max..&quot;&quot;)
+end
+
+function flashHealthGauge(duration)
+  setBackgroundColor(&quot;healthbar&quot;, 255, 0, 0, 255)
+  tempTimer(duration, [[ setPoisonStatus() ]])
 end</script>
                 <eventHandlerList>
                     <string>gmcp.MG.char.vitals</string>
