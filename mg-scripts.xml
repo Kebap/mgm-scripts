@@ -47,16 +47,9 @@ end</script>
             <Script isActive="yes" isFolder="no">
                 <name>setPoisonStatus</name>
                 <packageName></packageName>
-                <script>-- function setPoisonStatus()
---  if gmcp.MG.char.vitals.poison == 0 then
---    setBackgroundColor(&quot;healthbar&quot;, 0, 255, 50, 255)
---  else 
---    setBackgroundColor(&quot;healthbar&quot;, 255, 0, 0, 255)
---  end
---end
-function setPoisonStatus()
-  val = gmcp.MG.char.vitals.poison
-  if val == 0 then
+                <script>function setPoisonStatus()
+  poison = gmcp.MG.char.vitals.poison
+  if poison == 0 then
     r = 0
     g = 255
     b = 50
